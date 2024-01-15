@@ -6,22 +6,30 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Asignatura {
+public class Clase {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private String nombre;
+    private String tutor;
     private int curso;
-    private String profesor;
-    private int nota;
+    private String turno;
 
-    public Asignatura (String nombre, int curso, String profesor, int nota) {
-        this.nombre = nombre;
-        this.curso = curso;
-        this.profesor = profesor;
-        this.nota = nota;
+    // Constructor vacío (necesario para JPA)
+    public Clase() {
     }
+
+    // Constructor con parámetros
+    public Clase(String nombre, String tutor, int curso, String turno) {
+        this.nombre = nombre;
+        this.tutor = tutor;
+        this.curso = curso;
+        this.turno = turno;
+    }
+
+    // Getters y Setters
 
     public int getId() {
         return id;
@@ -39,6 +47,14 @@ public class Asignatura {
         this.nombre = nombre;
     }
 
+    public String getTutor() {
+        return tutor;
+    }
+
+    public void setTutor(String tutor) {
+        this.tutor = tutor;
+    }
+
     public int getCurso() {
         return curso;
     }
@@ -47,19 +63,12 @@ public class Asignatura {
         this.curso = curso;
     }
 
-    public String getProfesor() {
-        return profesor;
+    public String getTurno() {
+        return turno;
     }
 
-    public void setProfesor(String profesor) {
-        this.profesor = profesor;
+    public void setTurno(String turno) {
+        this.turno = turno;
     }
 
-    public int getNota() {
-        return nota;
-    }
-
-    public void setNota(int nota) {
-        this.nota = nota;
-    }
 }

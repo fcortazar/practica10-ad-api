@@ -16,8 +16,9 @@ public class AsignaturaController {
 
     // GET: Obtener todas las asignaturas
     @GetMapping
-    public List<Asignatura> getAllAsignaturas() {
-        return asignaturaService.getAll();
+    public ResponseEntity<List<Asignatura>> getAllAsignaturas() {
+        List<Asignatura> asignaturas = asignaturaService.getAll();
+        return new ResponseEntity<>(asignaturas, HttpStatus.OK);
     }
 
     // GET: Obtener una asignatura por su ID
